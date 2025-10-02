@@ -1,0 +1,85 @@
+/* ============================================================
+   Stil Dosyası (stil.css)
+   ------------------------------------------------------------
+   Bu dosya, tüm sistemin temel stil ayarlarını içerir.
+   Genel sıfırlamalar, sayfa düzeni, butonlar ve responsive 
+   görünüm ayarları burada tanımlanır.
+
+   Yazan: Mehmet Akar / php Giriş Sistemi
+   Tarih: 02/10/2025
+   ============================================================ */
+
+
+/* ------------------------------------------------------------
+   Temel sıfırlamalar
+   ------------------------------------------------------------ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+/* ------------------------------------------------------------
+   Sayfa gövdesi
+   ------------------------------------------------------------ */
+body {
+  background-color: #f0f2f5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* ------------------------------------------------------------
+   Ana kapsayıcı kutu
+   ------------------------------------------------------------ */
+.kapsayici {
+  background-color: #fff;
+  padding: 2rem 3rem;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  text-align: center;
+  width: 90%;
+  max-width: 400px;
+}
+
+/* ------------------------------------------------------------
+   Hoşgeldiniz başlığı
+   ------------------------------------------------------------ */
+.kapsayici h2 {
+  margin-bottom: 1.5rem;
+  color: #333;
+}
+
+/* ------------------------------------------------------------
+   Çıkış bağlantısı / buton
+   ------------------------------------------------------------ */
+.cikis {
+  display: inline-block;
+  padding: 0.6rem 1.2rem;
+  background-color: #007bff;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s, transform 0.2s;
+  font-weight: 500;
+}
+
+.cikis:hover {
+  background-color: #0056b3;
+  transform: translateY(-2px);
+}
+
+/* ------------------------------------------------------------
+   Responsive ayarlar (küçük ekranlar)
+   ------------------------------------------------------------ */
+@media (max-width: 480px) {
+  .kapsayici {
+    padding: 1.5rem 2rem;
+  }
+  .cikis {
+    width: 100%;
+    text-align: center;
+  }
+}

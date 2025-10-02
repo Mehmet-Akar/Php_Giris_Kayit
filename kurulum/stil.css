@@ -1,0 +1,121 @@
+/* ==========================================================
+   Form Stil Dosyası (stil.css)
+   ----------------------------------------------------------
+   Bu dosya; giriş, kayıt ve kurulum gibi form tabanlı 
+   sayfaların modern ve mobil uyumlu görünümü için 
+   hazırlanmıştır.
+
+   Kapsanan stiller:
+   - body            → Genel sayfa yapısı
+   - .form-kapsayici → Formun ana kapsayıcı kutusu
+   - form, label     → Form düzeni ve yazı stilleri
+   - input           → Giriş alanları
+   - button          → Buton (hover & aktif efektli)
+
+   Responsive tasarım:
+   - @media (max-width: 480px) → Mobil cihaz uyumu
+
+   Hazırlayan: Mehmet Akar
+   ========================================================== */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f6f5f7;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.form-kapsayici {
+    background: #fff;
+    width: 100%;
+    max-width: 420px;
+    padding: 30px 25px;
+    border-radius: 10px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+    text-align: center;
+}
+
+.form-kapsayici h1 {
+    font-size: 22px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.form-kapsayici p {
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 25px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+label {
+    text-align: left;
+    font-size: 13px;
+    font-weight: bold;
+    color: #444;
+}
+
+input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    background: #fafafa;
+    font-size: 14px;
+    transition: border-color 0.2s, background 0.2s;
+}
+
+input:focus {
+    outline: none;
+    border-color: #ff4b2b;
+    background: #fff;
+}
+
+button {
+    background: #ff4b2b;
+    color: #fff;
+    border: none;
+    padding: 14px;
+    border-radius: 25px;
+    font-size: 14px;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.1s;
+}
+
+button:hover {
+    background: #e94424;
+}
+
+button:active {
+    transform: scale(0.97);
+}
+
+/* Responsive uyum */
+@media (max-width: 480px) {
+    .form-kapsayici {
+        padding: 20px;
+        max-width: 100%;
+    }
+
+    button {
+        font-size: 13px;
+        padding: 12px;
+    }
+}

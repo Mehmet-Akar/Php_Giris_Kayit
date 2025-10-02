@@ -1,0 +1,131 @@
+/* ============================================
+   Kayıt Sayfası CSS (stil.css)
+   --------------------------------------------
+   - Form alanları: Ad, Soyad, E-posta, Şifre, Şifre Tekrar
+   - Modern, responsive tasarım
+   - Sadece kayıt sayfası için geçerli
+   ============================================ */
+
+/* Temel sıfırlamalar */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* Sayfa gövdesi */
+body {
+    background-color: #eef2f7;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* Ana kapsayıcı */
+.ana-kapsayici {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Form konteyneri */
+.konteyner {
+    background-color: #fff;
+    padding: 2.5rem 3rem;
+    border-radius: 12px;
+    box-shadow: 0 5px 18px rgba(0,0,0,0.12);
+    width: 95%;
+    max-width: 450px;
+    text-align: center;
+}
+
+/* Başlık */
+.baslik {
+    margin-bottom: 2rem;
+    color: #222;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+/* Form alanları */
+.form-alani {
+    margin-bottom: 1.2rem;
+    text-align: left;
+}
+
+.form-alani label {
+    display: block;
+    margin-bottom: 0.4rem;
+    font-weight: 600;
+    color: #333;
+}
+
+.form-alani input {
+    width: 100%;
+    padding: 0.7rem;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+    transition: border-color 0.3s;
+}
+
+.form-alani input:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+/* Düğmeler */
+.dugme {
+    display: inline-block;
+    width: 100%;
+    padding: 0.7rem 1.2rem;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: background-color 0.3s, transform 0.2s;
+    margin-top: 0.7rem;
+    text-align: center;
+    text-decoration: none;
+}
+
+/* Mavi düğme */
+.dugme.mavi {
+    background-color: #007bff;
+}
+.dugme.mavi:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+}
+
+/* Gri düğme */
+.dugme.gri {
+    background-color: #6c757d;
+}
+.dugme.gri:hover {
+    background-color: #565e64;
+    transform: translateY(-2px);
+}
+
+/* Alt yazı */
+.yazi {
+    margin-top: 1.2rem;
+    font-size: 0.9rem;
+    color: #555;
+}
+
+/* Responsive: küçük ekranlarda */
+@media (max-width: 480px) {
+    .konteyner {
+        padding: 2rem 1.5rem;
+    }
+
+    .baslik {
+        font-size: 1.3rem;
+    }
+}
