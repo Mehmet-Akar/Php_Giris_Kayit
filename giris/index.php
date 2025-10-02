@@ -21,7 +21,7 @@
     <meta name="description" content="Php giriş sistemi - Kullanıcıların e-posta ve şifre ile güvenli giriş yapabildiği sayfa.">
     <meta name="author" content="Mehmet Akar">
     <meta name="keywords" content="php, kullanıcı girişi, login, kayıt sistemi, güvenli giriş">
-
+     <link rel="icon" href="../favicon.ico">
     <!-- Harici stil dosyası -->
     <link rel="stylesheet" href="stil.css"> 
 </head>

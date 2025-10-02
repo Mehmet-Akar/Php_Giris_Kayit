@@ -81,7 +81,7 @@ if ($basarili) {
     <meta name="description" content="Php kayıt sistemi - Kullanıcı kayıt işleminin sonucu sayfası.">
     <meta name="author" content="Mehmet Akar">
     <meta name="keywords" content="php, kayıt işlemi, kullanıcı kaydı, register, güvenli kayıt">
-
+     <link rel="icon" href="../favicon.ico">
     <link rel="stylesheet" href="stil.css">
 </head>
 <body>

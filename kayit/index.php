@@ -21,7 +21,7 @@
     <meta name="description" content="Php kayıt formu - Kullanıcıların ad, soyad, e-posta ve şifre ile kayıt olabileceği sayfa.">
     <meta name="author" content="Mehmet Akar">
     <meta name="keywords" content="php, kayıt formu, kullanıcı kaydı, register, güvenli kayıt">
-
+     <link rel="icon" href="../favicon.ico">
     <!-- Stil dosyası -->
     <link rel="stylesheet" href="stil.css">
 </head>
