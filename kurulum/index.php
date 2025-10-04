@@ -4,7 +4,7 @@
 // ================================================
 // Bu sayfa, veritabanı bilgilerini alıp sistemi kurar.
 // Eğer sistem zaten kurulmuşsa kullanıcıya bilgi verip
-// giriş sayfasına yönlendirir.
+// giriş sayfasına veya tekrar kuruluma yönlendirir.
 // ================================================
 
 include __DIR__ . "/../statik/ayar.php"; // Üst dizindeki ayar dosyasını dahil et
@@ -12,12 +12,14 @@ include __DIR__ . "/../statik/ayar.php"; // Üst dizindeki ayar dosyasını dahi
 // -------------------------------------------------
 // Sistem daha önce kurulmuş mu kontrol
 // -------------------------------------------------
-if (isset($kurulum_yapildi) && $kurulum_yapildi == 1) {
+if (isset($kurulum_yapildi) && $kurulum_yapildi == 1 && !isset($_GET['force'])) {
     echo "<p style='text-align:center;font-family:sans-serif;margin-top:50px;'>
-            <b>Sistem kurulmuş görünüyor.</b><br>
-            <a href='../giris.php'>Giriş yapmak için buraya tıklayın.</a>
+            <b>Sistem zaten kurulmuş görünüyor.</b><br>
+            <a href='../giris.php'>Giriş yapmak için buraya tıklayın.</a><br><br>
+            <span style='color:red;'>Eğer yine de kurulumu sıfırdan başlatmak istiyorsanız 
+            <a href='index.php?force=1'>buraya tıklayın</a>.</span>
           </p>";
-    exit; // Kurulum sayfasını kapat, başka işlem yapma
+    exit; // Kurulum sayfasını kapat, force yoksa başka işlem yapma
 }
 ?>
 <!DOCTYPE html>

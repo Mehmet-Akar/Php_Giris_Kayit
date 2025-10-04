@@ -69,7 +69,7 @@ try {
         email VARCHAR(150) NOT NULL UNIQUE,
         sifre VARCHAR(255) NOT NULL,
         olusturma_tarihi TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-        rol VARCHAR(20) DEFAULT 'kullanici',
+        rol ENUM('kullanici','yetkili') NOT NULL DEFAULT 'kullanici',
         durum TINYINT(1) DEFAULT 1
     ) ENGINE=InnoDB DEFAULT CHARSET=utf8";
 
@@ -87,7 +87,7 @@ $icerik .= "\$veritabani_adi = '$veritabani';\n";
 $icerik .= "\$veritabani_kullanici = '$kullanici';\n";
 $icerik .= "\$veritabani_sifre = '$sifre';\n";
 $icerik .= "\$kurulum_yapildi = 1;\n";
-$icerik .= "\$kullanici_tablosu = '$tablo';\n\n"; // tablo adını config’e ekledik
+$icerik .= "\$kullanici_tablosu = '$tablo';\n\n"; 
 $icerik .= "function baglan() {\n";
 $icerik .= "    global \$veritabani_sunucu, \$veritabani_adi, \$veritabani_kullanici, \$veritabani_sifre;\n";
 $icerik .= "    try {\n";
@@ -102,10 +102,13 @@ $icerik .= "}\n";
 file_put_contents(__DIR__ . "/../statik/ayar.php", $icerik);
 
 // -------------------------------------------------
-// Başarı mesajı
+// Başarı mesajı + yönlendirme
 // -------------------------------------------------
 echo "<p style='text-align:center;font-family:sans-serif;margin-top:50px;'>
-        <b>Kurulum başarıyla tamamlandı!</b><br>
-        <a href='../index.php'>Ana sayfaya dön</a><br><br>
-        <span style='color:red;'>Güvenlik için kurulum klasörünü silebilirsiniz.</span>
+        <b>Tablolar başarıyla oluşturuldu!</b><br>
+        Yetkili kurulumu için sonraki adıma geçebilirsiniz.<br><br>
+        3 saniye içinde yetkili oluşturma sayfasına yönlendirileceksiniz...
       </p>";
+
+header("refresh:3;url=yetkili_olustur.php");
+exit;

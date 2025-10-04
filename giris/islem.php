@@ -6,9 +6,9 @@
 // 1) Kullanıcı e-posta ve şifre alanlarını doldurmuş mu kontrol eder.
 // 2) Veritabanından kullanıcı bilgilerini çeker.
 // 3) Şifre doğrulaması yapar (password_verify).
-// 4) Giriş başarılıysa session başlatır ve ana sayfaya yönlendirir.
+// 4) Giriş başarılıysa session başlatır ve rolüne göre yönlendirir.
 // 5) Başarısızsa uygun hata mesajı döner.
-// 
+//
 // Yazan: Mehmet Akar / php Giriş Sistemi
 // Tarih: 02/10/2025
 // ============================================================
@@ -47,12 +47,17 @@ if (!$email || !$sifre) {
             $basarili = false;
         } else {
             // Giriş başarılı
-            $_SESSION['kullanici_id'] = $kullanici['id'];
-            $_SESSION['kullanici_ad'] = $kullanici['ad'];
+            $_SESSION['kullanici_id']  = $kullanici['id'];
+            $_SESSION['kullanici_ad']  = $kullanici['ad'];
             $_SESSION['kullanici_rol'] = $kullanici['rol'];
 
-            $mesaj = "Giriş başarılı! Ana sayfaya yönlendiriliyorsunuz...";
+            $mesaj = "Giriş başarılı! Yönlendiriliyorsunuz...";
             $basarili = true;
+
+            // Rolüne göre hedef sayfa
+            $hedef = ($kullanici['rol'] === 'yetkili') 
+                   ? "../yetkili/index.php" 
+                   : "../index.php";
         }
 
     } catch (PDOException $hata) {
@@ -68,7 +73,7 @@ if (!$email || !$sifre) {
 <head>
     <meta charset="UTF-8">
     <title>Giriş Sonucu</title>
-     <link rel="icon" href="../favicon.ico">
+    <link rel="icon" href="../favicon.ico">
     <!-- Mobil uyum ve SEO için meta etiketleri -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Php giriş sistemi - Kullanıcı giriş sonucu sayfası. Başarılı girişte yönlendirme yapılır.">
@@ -88,18 +93,19 @@ if (!$email || !$sifre) {
             <!-- Kullanıcıya gösterilecek mesaj -->
             <p class="yazi"><?= htmlspecialchars($mesaj) ?></p>
 
-            <!-- Her durumda düğme gösteriliyor -->
-            <a href="../index.php" class="dugme <?= $basarili ? 'mavi' : 'gri' ?>">
-                <?= $basarili ? 'Ana Sayfaya Git' : 'Giriş Sayfasına Dön' ?>
-            </a>
-
             <?php if ($basarili): ?>
-            <script>
-                // 2 saniye sonra otomatik yönlendirme
-                setTimeout(() => {
-                    window.location.href = "../index.php";
-                }, 2000);
-            </script>
+                <!-- Doğrudan ilgili sayfaya yönlendirme butonu -->
+                <a href="<?= htmlspecialchars($hedef) ?>" class="dugme mavi">Devam Et</a>
+
+                <script>
+                    // 2 saniye sonra otomatik yönlendirme
+                    setTimeout(() => {
+                        window.location.href = "<?= $hedef ?>";
+                    }, 2000);
+                </script>
+            <?php else: ?>
+                <!-- Başarısız girişte giriş sayfasına dön -->
+                <a href="index.php" class="dugme gri">Giriş Sayfasına Dön</a>
             <?php endif; ?>
 
         </div>
